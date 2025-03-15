@@ -1,4 +1,4 @@
-# loja-de-receitas<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,83 +6,101 @@
     <title>Loja de Receitas</title>
     <script src="https://www.paypal.com/sdk/js?client-id=SEU_CLIENT_ID_AQUI&currency=BRL"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #fff5e1;
             text-align: center;
+            color: #5a3e1b;
         }
         header {
-            background-color: #ff6347;
+            background-color: #d35400;
             color: white;
             padding: 20px;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         }
         .product {
             margin-bottom: 20px;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background: #ffebcc;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
         }
         .product img {
             width: 100%;
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
         .buy-button {
-            background-color: #28a745;
+            background-color: #27ae60;
             color: white;
-            padding: 10px;
+            padding: 12px;
             border: none;
             border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-button:hover {
+            background-color: #219150;
         }
         #cart {
-            background: white;
+            background: #ffebcc;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
         }
         #cart-items {
             list-style: none;
             padding: 0;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>Loja de Receitas</header>
+    <header>🍽️ Loja de Receitas Deliciosas 🍽️</header>
     <div class="container">
         <div class="product" data-name="Ebook: Receitas de Bolos" data-price="19.90">
-            <h2>Ebook: Receitas de Bolos</h2>
+            <h2>📘 Ebook: Receitas de Bolos</h2>
             <img src="https://via.placeholder.com/600x300" alt="Ebook de Bolos">
             <p>Aprenda a fazer os melhores bolos com receitas detalhadas.</p>
-            <button class="buy-button" onclick="addToCart(this)">Comprar por R$19,90</button>
+            <button class="buy-button" onclick="addToCart(this)">🛒 Comprar por R$19,90</button>
         </div>
         <div class="product" data-name="Ebook: Massas Artesanais" data-price="29.90">
-            <h2>Ebook: Massas Artesanais</h2>
+            <h2>📘 Ebook: Massas Artesanais</h2>
             <img src="https://via.placeholder.com/600x300" alt="Ebook de Massas">
             <p>Descubra os segredos das massas italianas feitas em casa.</p>
-            <button class="buy-button" onclick="addToCart(this)">Comprar por R$29,90</button>
+            <button class="buy-button" onclick="addToCart(this)">🛒 Comprar por R$29,90</button>
         </div>
         <div class="product" data-name="Ebook: Sobremesas Fáceis" data-price="24.90">
-            <h2>Ebook: Sobremesas Fáceis</h2>
+            <h2>📘 Ebook: Sobremesas Fáceis</h2>
             <img src="https://via.placeholder.com/600x300" alt="Ebook de Sobremesas">
             <p>Receitas simples e deliciosas para adoçar seu dia.</p>
-            <button class="buy-button" onclick="addToCart(this)">Comprar por R$24,90</button>
+            <button class="buy-button" onclick="addToCart(this)">🛒 Comprar por R$24,90</button>
         </div>
     </div>
     <div id="cart" class="container">
-        <h2>Carrinho</h2>
+        <h2>🛍️ Carrinho</h2>
         <ul id="cart-items"></ul>
-        <p>Total: R$<span id="cart-total">0.00</span></p>
+        <p><strong>Total: R$<span id="cart-total">0.00</span></strong></p>
         <div id="paypal-button-container"></div>
     </div>
     <script>
